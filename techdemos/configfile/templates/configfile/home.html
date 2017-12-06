@@ -1,0 +1,14 @@
+{% extends "configfile/header.html" %}
+
+{% block content %}
+  {% comment %}
+  {% for c in content %}
+    {{c}}
+  {% endfor %}
+  {% endcomment %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile" accept="*.bngl">
+    <input type="submit">
+  </form>
+{% endblock %}

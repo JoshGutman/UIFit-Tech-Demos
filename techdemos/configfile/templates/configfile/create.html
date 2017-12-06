@@ -1,0 +1,44 @@
+{% extends "configfile/header.html" %}
+
+{% block content %}
+{% endblock %}
+
+{% block free %}
+  <h3>FREE OPTIONS</h3><br>
+  <form method="POST">
+  {% csrf_token %}
+  <table style="width:30%">
+  {% for f in free %}
+    <tr><td>{{f.lower.label |safe}}</td> <td>{{f.lower.field |safe}}</td> <td>{{f.upper |safe}}</td></tr>
+  {% endfor %}
+  </table>
+{% endblock %}
+
+{% block path %}
+  <br><h3>PATH OPTIONS</h3><br>
+  <table style="width:30%">
+  {% for p in path %}
+    <tr><td>{{p.label |safe}}</td> <td>{{p.field |safe}}</td> </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
+
+{% block general %}
+<br><h3>GENERAL OPTIONS</h3><br>
+<table style="width:30%">
+  {% for g in general %}
+    <tr> <td>{{g.label |safe}}</td> <td>{{g.field |safe}}</td> </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
+
+{% block fitting %}
+<br><h3>FITTING OPTIONS</h3><br>
+<table style="width:30%">
+  {% for f in fitting %}
+    <tr> <td>{{f.label |safe}}</td> <td>{{f.field |safe}}</td> </tr>
+  {% endfor %}
+  </table>
+  <br><input type="submit" value="submit"><br>
+</form>
+{% endblock %}
